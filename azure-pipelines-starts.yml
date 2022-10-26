@@ -3,8 +3,8 @@
 trigger:
 - main
 schedules:
-- cron: "0 16 * * 1-5"
-  displayName: Daily build at midnight (Monday-Friday)
+- cron: "0 10 * * 1-5"
+  displayName: Start cluster at 10 am (Monday-Friday)
   branches:
     include:
     - main
@@ -15,11 +15,11 @@ variables:
 - group: EPlast
 
 stages:
-- stage: Build
-  displayName: Build stage
+- stage: Start
+  displayName: Start stage
   jobs:  
-  - job: Build
-    displayName: Build
+  - job: Start
+    displayName: Start
     pool:
       vmImage: 'ubuntu-latest'
     steps:     
