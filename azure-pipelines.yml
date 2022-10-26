@@ -3,7 +3,7 @@
 trigger:
 - main
 schedules:
-- cron: "50 15 * * 1-5"
+- cron: "0 16 * * 1-5"
   displayName: Daily build at midnight (Monday-Friday)
   branches:
     include:
@@ -29,4 +29,4 @@ stages:
         azureSubscription: $(azureSubscription)
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
-        inlineScript: 'az aks stop --name EPlast  --resource-group EPlast'
+        inlineScript: 'az aks start --name EPlast  --resource-group EPlast'
