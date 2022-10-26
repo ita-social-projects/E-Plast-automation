@@ -29,4 +29,4 @@ stages:
         azureSubscription: $(azureSubscription)
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
-        inlineScript: 'az account list'
+        inlineScript: 'az aks stop --name EPlast  --resource-group EPlast'
