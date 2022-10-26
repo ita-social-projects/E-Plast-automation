@@ -1,7 +1,8 @@
-trigger:
 # YAML file in the release branch
+
+trigger:
 schedules:
-- cron: "40 15 * * Mon-Fri"
+- cron: "40 15 * * 1-5"
   displayName: Daily build at midnight (Monday-Friday)
   branches:
     include:
