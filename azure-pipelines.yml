@@ -21,7 +21,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: $(vmImageName)
+      vmImage: 'ubuntu-latest'
     steps:     
     - task: AzureCLI@2
       displayName: Azure CLI
