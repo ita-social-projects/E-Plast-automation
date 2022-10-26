@@ -3,11 +3,12 @@
 trigger:
 - main
 schedules:
-- cron: "28 20 * * Mon,Wed,Fri"
+- cron: "31 20 * * Mon,Wed,Fri"
   displayName: Stop cluster at 8 pm (Monday-Friday)
   branches:
     include:
     - main
+  always: true  
 resources:
 - repo: self
 
