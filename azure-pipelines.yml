@@ -1,0 +1,23 @@
+trigger:
+# YAML file in the release branch
+schedules:
+- cron: "25 15 * * *"
+  displayName: Daily build at midnight (Monday-Friday)
+  branches:
+    include:
+    - main
+resources:
+- repo: self
+
+variables:
+- group: EPlast
+
+- task: AzureCLI@2
+  displayName: Azure CLI
+  inputs:
+    azureSubscription: $(azureSubscription)
+    scriptType: ps
+    scriptLocation: inlineScript
+    inlineScript: |
+      az --version
+      az account show
