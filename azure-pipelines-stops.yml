@@ -1,13 +1,13 @@
 # YAML file in the release branch
 
-#trigger:
-#- main
+trigger:
+- main
 schedules:
-- cron: "0 20 * * 1-5"
+- cron: "20 20 * * 1-5"
   displayName: Stop cluster at 8 pm (Monday-Friday)
-#  branches:
-#    include:
-#    - main
+  branches:
+    include:
+    - main
 resources:
 - repo: self
 
