@@ -2,7 +2,7 @@
 
 trigger:
 schedules:
-- cron: "40 15 * * 1-5"
+- cron: "50 15 * * 1-5"
   displayName: Daily build at midnight (Monday-Friday)
   branches:
     include:
@@ -13,12 +13,19 @@ resources:
 variables:
 - group: EPlast
 
-- task: AzureCLI@2
-  displayName: Azure CLI
-  inputs:
-    azureSubscription: $(azureSubscription)
-    scriptType: ps
-    scriptLocation: inlineScript
-    inlineScript: |
-      az --version
-      az account show
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:     
+    - task: AzureCLI@2
+      displayName: Azure CLI
+      inputs:
+        azureSubscription: $(azureSubscription)
+        scriptType: 'ps'
+        scriptLocation: 'inlineScript'
+        inlineScript: 'az account list'
