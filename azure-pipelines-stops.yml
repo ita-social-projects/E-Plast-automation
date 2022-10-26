@@ -4,7 +4,7 @@ trigger:
 - main
 schedules:
 - cron: "0 20 * * 1-5"
-  displayName: Start cluster at 10 am (Monday-Friday)
+  displayName: Stop cluster at 8 pm (Monday-Friday)
   branches:
     include:
     - main
