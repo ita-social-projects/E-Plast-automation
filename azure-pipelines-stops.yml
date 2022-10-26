@@ -30,4 +30,6 @@ stages:
         azureSubscription: $(azureSubscription)
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
-        inlineScript: 'az aks stop --name $(name) --resource-group $(name)'
+        inlineScript: |
+          timedatectl
+          'az aks stop --name $(name) --resource-group $(name)'
