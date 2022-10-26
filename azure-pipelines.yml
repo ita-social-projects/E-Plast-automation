@@ -1,6 +1,7 @@
 # YAML file in the release branch
 
 trigger:
+- main
 schedules:
 - cron: "50 15 * * 1-5"
   displayName: Daily build at midnight (Monday-Friday)
