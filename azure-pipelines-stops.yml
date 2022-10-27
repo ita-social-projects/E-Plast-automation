@@ -5,9 +5,9 @@ trigger:
 schedules:
 - cron: "40 20 * * Mon,Wed,Fri"
   displayName: Stop cluster at 8 pm (Monday-Friday)
-#  branches:
-#    include:
-#    - main
+  branches:
+    include:
+    - main
   always: true  
 resources:
 - repo: self
