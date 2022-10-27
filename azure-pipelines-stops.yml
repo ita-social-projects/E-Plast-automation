@@ -24,12 +24,17 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:     
+    
+    - task: CmdLine@2
+      displayName: Set system Timezone to IST
+      inputs:
+        script: |
+          sudo timedatectl
+        
     - task: AzureCLI@2
       displayName: Azure CLI
       inputs:
         azureSubscription: $(azureSubscription)
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
-        inlineScript: |
-          timedatectl
-          'az aks stop --name $(name) --resource-group $(name)'
+        inlineScript: 'az aks stop --name $(name) --resource-group $(name)'
