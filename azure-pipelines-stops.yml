@@ -3,7 +3,7 @@
 trigger:
 - main
 schedules:
-- cron: "35 5 * * Mon,Wed,Fri"
+- cron: "35 5 * * 1-5"
   displayName: Stop cluster at 8 pm (Monday-Friday)
   branches:
     include:
