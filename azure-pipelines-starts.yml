@@ -1,16 +1,14 @@
 # YAML file in the release branch
 
-#trigger:
-#- main
-#- test
+trigger:
+- main
 schedules:
-- cron: "0 10 * * 1-5"
+- cron: "0 7 * * 1-5"
   displayName: Start cluster at 10 am (Monday-Friday)
-#  branches:
-#    include:
-#    - main
+  branches:
+    include:
+    - main
   always: true    
-  #  - test
 resources:
 - repo: self
 
@@ -25,7 +23,13 @@ stages:
     displayName: Start
     pool:
       vmImage: 'ubuntu-latest'
-    steps:     
+    steps:   
+    - task: CmdLine@2
+      displayName: Set system Timezone to IST
+      inputs:
+        script: |
+          sudo timedatectl
+          
     - task: AzureCLI@2
       displayName: Azure CLI
       inputs:
