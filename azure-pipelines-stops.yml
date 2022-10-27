@@ -1,7 +1,7 @@
 # YAML file in the release branch
 
 trigger:
-- test
+- main
 schedules:
 - cron: "40 20 * * Mon,Wed,Fri"
   displayName: Stop cluster at 8 pm (Monday-Friday)
